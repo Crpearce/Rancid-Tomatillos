@@ -7,8 +7,14 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: movieData.movies
+      movies: movieData.movies,
+      singleMovie: null
     }
+  }
+
+  displayMovieDetails = (id) => {
+    const currentMovie = this.state.movies.find(movie => movie.id === id)
+    this.setState({ singleMovie: currentMovie })
   }
 
   render() {
@@ -16,11 +22,10 @@ class App extends Component {
     return (
       <main className='App'>
         <h1>Rotten Tomatillos</h1>
-        <Movies movies={this.state.movies}/>
+        <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails} />
       </main>
     )
   }
 }
 
 export default App;
-
