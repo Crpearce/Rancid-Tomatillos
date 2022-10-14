@@ -2,7 +2,7 @@ import React from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import "./Movies.css";
 
-const Movies = ({ movies }) => {
+const Movies = ({ movies, displayMovieDetails }) => {
   const movieCards = movies.map((movie) => {
     return (
       <MovieCard
@@ -13,6 +13,7 @@ const Movies = ({ movies }) => {
         averageRating={movie.average_rating}
         releaseDate={movie.release_date}
         key={movie.id}
+        onClick = {() => displayMovieDetails(movie.id)}
       />
     );
   });

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Movies from '../Movies/Movies'
+import MovieDetails from '../MovieDetails/MovieDetails'
 import movieData from '../movieData/movieData'
 import './App.css';
 
@@ -13,16 +14,34 @@ class App extends Component {
   }
 
   displayMovieDetails = (id) => {
+    console.log('test')
     const currentMovie = this.state.movies.find(movie => movie.id === id)
     this.setState({ singleMovie: currentMovie })
   }
 
   render() {
-    console.log(this.state.movies)
+    let display
+    if (this.state.singleMovie === null) {
+      <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails} />
+    } else {
+      display = (
+        <MovieDetails
+        key={this.state.singleMovie.id}
+        id={this.state.singleMovie.id}
+        title={this.state.singleMovie.title}
+        poster={this.state.singleMovie.poster_path}
+        backdrop={this.state.singleMovie.backdrop_path}
+        rating={this.state.singleMovie.average_rating}
+        release={this.state.singleMovie.release_date}
+        // clearMovieDetails={this.clearMovieDetails}
+        />
+      )
+    }
+
     return (
       <main className='App'>
         <h1>Rotten Tomatillos</h1>
-        <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails} />
+        {display}
       </main>
     )
   }
