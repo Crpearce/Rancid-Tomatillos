@@ -9,10 +9,9 @@ const MovieDetails = ({id, title, poster, backdrop, rating, release,clearMovieDe
             />
             <h2>{title}</h2>
             <p>{rating}</p>
-            <button className="clear-movie-details" onClick={clearMovieDetails}>X</button>
+            <button className="clear-movie-details" onClick={clearMovieDetails}>HOME</button>
         </div>
     )
 }
-
 
 export default MovieDetails
