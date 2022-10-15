@@ -6,6 +6,7 @@
     position: fixed;
     background-color: rgba(13,101,107, .8);
     backdrop-filter: blur(5px);
+    align-items: center;
   }
 
 .Rancid {
@@ -15,13 +16,13 @@
     color: white;
     margin-left: 2%;
     margin-right: 1%;
-    margin-top: 1%;
+    /* margin-top: 1%; */
 }
 
 .Tomatillos {
     margin: 0;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 50px;
-    margin-top: 1.5%;
+    margin-top: .5%;
     color: #DF3B57;
 }

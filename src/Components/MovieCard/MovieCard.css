@@ -7,7 +7,9 @@
   img {
     height: 85%;
     width: 85%;
+    cursor: pointer; 
 }
+
 
 .movie-title {
   font-family: 'Roboto Condensed', sans-serif;

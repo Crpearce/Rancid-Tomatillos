@@ -4,7 +4,6 @@ import "./Movies.css";
 
 const Movies = ({ movies, displayMovieDetails }) => {
   const movieCards = movies.map((movie) => {
-    console.log(movie)
     return (
       <MovieCard
         id={movie.id}

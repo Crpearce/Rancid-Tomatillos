@@ -1,0 +1,52 @@
+.movie-details {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin-top: 5%;
+  }
+
+  .movie-details-title {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: white;
+    font-size: 50px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+
+  .single-poster-img {
+        /* display: block; */
+        /* max-width:230px;
+        max-height:95px; */
+        width: 50%;
+        height: auto;
+        margin-bottom: 2%;
+  }
+
+  .clear-movie-details {
+    margin-top: 3%;
+    height: 80%;
+    width: 10%;
+  }
+
+  .rating {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: white;
+    font-size: 25px;
+  }
+
+  .movie-overview {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: white;
+    font-size: 25px;
+    margin-bottom: 3%;
+    width: 60%;
+  }
+
+  .extra-movie-details {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: white;
+    font-size: 35px;
+    margin-bottom: 2%;
+  }
+

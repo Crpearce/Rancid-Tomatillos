@@ -22,10 +22,11 @@ class App extends Component {
       .catch(error => this.setState({error: 'Error loading page, please try again!'}))
   }
 
-
   displayMovieDetails = (id) => {
     const currentMovie = this.state.movies.find(movie => movie.id === id)
-    this.setState({ singleMovie: currentMovie })
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${currentMovie.id}`)
+    .then(response => response.json())
+    .then(data => this.setState({ singleMovie: data.movie }))
   }
 
   // displayMovieVideo
@@ -50,10 +51,14 @@ class App extends Component {
         rating={this.state.singleMovie.average_rating}
         release={this.state.singleMovie.release_date}
         clearMovieDetails={this.clearMovieDetails}
+        overview={this.state.singleMovie.overview}
+        releaseDate={this.state.singleMovie.release_date}
+        runTime={this.state.singleMovie.runtime}
+        genres={this.state.singleMovie.genres}
         />
         )
       } else { 
-        display = (<Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>)
+        display = (<Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails} />)
       }
     return (
       <main className='App'>
