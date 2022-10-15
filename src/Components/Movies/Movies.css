@@ -2,8 +2,11 @@
     padding: 5px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    /* grid-gap: 20px; */
+    height: 75%;
+    width: 100%;
+    margin-top: 8%;
 }
+
 /* padding: 20px;
 display: grid;
 grid-template-columns: repeat(3, 1fr);
