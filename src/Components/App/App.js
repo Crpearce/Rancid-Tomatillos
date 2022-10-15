@@ -8,15 +8,27 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: movieData.movies,
-      singleMovie: null
+      movies: [],
+      singleMovie: null,
+      error: ''
     }
   }
+
+  componentDidMount() {
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+      .then(response => response.json())
+      .then(data => this.setState({ movies: data.movies }))
+      .catch(error => this.setState({error: 'Error loading page, please try again!'}))
+  }
+
 
   displayMovieDetails = (id) => {
     const currentMovie = this.state.movies.find(movie => movie.id === id)
     this.setState({ singleMovie: currentMovie })
   }
+
+  // displayMovieVideo
+  //  pass
 
   clearMovieDetails = () => {
     this.setState({ singleMovie: null})

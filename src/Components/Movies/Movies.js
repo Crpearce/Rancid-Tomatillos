@@ -4,6 +4,7 @@ import "./Movies.css";
 
 const Movies = ({ movies, displayMovieDetails }) => {
   const movieCards = movies.map((movie) => {
+    console.log(movie)
     return (
       <MovieCard
         id={movie.id}
@@ -14,6 +15,7 @@ const Movies = ({ movies, displayMovieDetails }) => {
         releaseDate={movie.release_date}
         key={movie.id}
         onClick = {() => displayMovieDetails(movie.id)}
+        // pass in function to render movie video on click(use movie id to find)
       />
     );
   });

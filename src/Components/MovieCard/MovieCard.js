@@ -5,8 +5,7 @@ const MovieCard = ({id, posterPath, backdropPath, title, averageRating, releaseD
     return ( 
         <div className='movie-card' onClick={onClick}>
             <img src={posterPath} alt={title}/>
-            <h3>{title}</h3>
-            
+            <h3>{title}</h3>    
         </div>
      );
 }
