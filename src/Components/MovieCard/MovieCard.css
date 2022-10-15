@@ -8,3 +8,9 @@
     height: 85%;
     width: 85%;
 }
+
+.movie-title {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: white;
+  font-size: 20px;
+}

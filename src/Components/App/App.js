@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Movies from '../Movies/Movies'
 import MovieDetails from '../MovieDetails/MovieDetails'
 import movieData from '../movieData/movieData'
+import Navigation from '../Navigation/Navigation'
 import './App.css';
 
 class App extends Component {
@@ -56,7 +57,8 @@ class App extends Component {
       }
     return (
       <main className='App'>
-        <h1>Rotten Tomatillos</h1>
+        <Navigation />
+        {/* <h1>Rotten Tomatillos</h1> */}
         {display}
       </main>
     )
