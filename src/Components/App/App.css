@@ -3,7 +3,6 @@
   padding: 0;
 }
 
-
 /* .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -33,3 +32,10 @@
   background-repeat: no-repeat;
   height: 100%;
 } */
+
+.error-message {
+  margin-top: 15%;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: white;
+  font-size: 50px;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Movies from '../Movies/Movies'
 import MovieDetails from '../MovieDetails/MovieDetails'
-import movieData from '../movieData/movieData'
+// import movieData from '../movieData/movieData'
 import Navigation from '../Navigation/Navigation'
 import './App.css';
 
@@ -17,7 +17,13 @@ class App extends Component {
 
   componentDidMount() {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-      .then(response => response.json())
+      .then(response => { console.log(response)
+        if (!response.ok) {
+          throw new Error('Error receiving Data')
+        } else {
+          return response.json()
+        }
+      })
       .then(data => this.setState({ movies: data.movies }))
       .catch(error => this.setState({error: 'Error loading page, please try again!'}))
   }
