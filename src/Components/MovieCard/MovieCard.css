@@ -10,9 +10,9 @@
     cursor: pointer; 
 }
 
-
 .movie-title {
   font-family: 'Roboto Condensed', sans-serif;
   color: white;
   font-size: 20px;
+  margin-bottom: 15%;
 }
