@@ -14,13 +14,18 @@
     margin-bottom: 2%;
   }
 
+  .movie-details-image {
+    height: 70%;
+    width: 70%;
+  }
+
   .single-poster-img {
         /* display: block; */
         /* max-width:230px;
         max-height:95px; */
-        width: 50%;
-        height: auto;
-        margin-bottom: 2%;
+    width: 50%;
+    height: auto;
+    margin-bottom: 2%;
   }
 
   .clear-movie-details {
@@ -44,7 +49,14 @@
     width: 60%;
   }
 
-  .extra-movie-details {
+  .movie-genres {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: white;
+    font-size: 35px;
+    margin-bottom: 2%;
+  }
+
+  .release-date {
     font-family: 'Roboto Condensed', sans-serif;
     color: white;
     font-size: 35px;

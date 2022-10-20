@@ -5,14 +5,32 @@
   }  */
 
   img {
-    height: 85%;
-    width: 85%;
+    height: 80%;
+    width: 80%;
     cursor: pointer; 
+    border-radius: 6%;
+    /* border-color:rgba(13,101,107, .8);
+    border: 7px solid rgba(13,101,107, .8); */
 }
+
+.movie-card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* .float:hover {
+  -webkit-transform translateY(-10px);
+	transform translateY(-10px);
+} */
 
 .movie-title {
   font-family: 'Roboto Condensed', sans-serif;
   color: white;
   font-size: 20px;
   margin-bottom: 15%;
+  
+}
+
+.movie-card {
+  text-decoration: none;
 }
