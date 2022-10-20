@@ -1,13 +1,16 @@
-import React from 'react'
-import './MovieCard.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import "./MovieCard.css";
 
-const MovieCard = ({id, posterPath, backdropPath, title, averageRating, releaseDate, onClick}) => {
-    return ( 
-        <div className='movie-card' onClick={onClick}>
-            <img src={posterPath} alt={title}/>
-            <h3 className='movie-title'>{title}</h3>    
-        </div>
-     );
-}
- 
+const MovieCard = ({ id, onClick, title, posterPath }) => {
+  return (
+    <Link to={`/${id}`} key={id}>
+      <div className="movie-card" onClick={onClick}>
+        <img src={posterPath} alt={title} />
+        <h3 className="movie-title">{title}</h3>
+      </div>
+    </Link>
+  );
+};
+
 export default MovieCard;

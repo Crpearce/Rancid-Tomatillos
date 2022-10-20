@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import Movies from '../Movies/Movies'
 import MovieDetails from '../MovieDetails/MovieDetails'
 // import movieData from '../movieData/movieData'
@@ -10,14 +11,14 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      singleMovie: null,
+      singleMovie: {},
       error: ''
     }
   }
 
   componentDidMount() {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-      .then(response => { console.log(response)
+      .then(response => {
         if (!response.ok) {
           throw new Error('Error receiving Data')
         } else {
@@ -35,42 +36,44 @@ class App extends Component {
     .then(data => this.setState({ singleMovie: data.movie }))
   }
 
-  // displayMovieVideo
-  //  pass
-
   clearMovieDetails = () => {
     this.setState({ singleMovie: null})
   }
 
   render() {
-    let display;
-    if(this.state.error) {
-      display = <h2 className="error-message">{this.state.error}</h2>;
-    } else if(this.state.singleMovie) {
-      display = (
-        <MovieDetails
-        key={this.state.singleMovie.id}
-        id={this.state.singleMovie.id}
-        title={this.state.singleMovie.title}
-        poster={this.state.singleMovie.poster_path}
-        backdrop={this.state.singleMovie.backdrop_path}
-        rating={this.state.singleMovie.average_rating}
-        release={this.state.singleMovie.release_date}
-        clearMovieDetails={this.clearMovieDetails}
-        overview={this.state.singleMovie.overview}
-        releaseDate={this.state.singleMovie.release_date}
-        runTime={this.state.singleMovie.runtime}
-        genres={this.state.singleMovie.genres}
-        />
-        )
-      } else { 
-        display = (<Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails} />)
-      }
+    // let display;
+    // if(this.state.error) {
+    //   display = <h2 className="error-message">{this.state.error}</h2>;
+    // } else if(this.state.singleMovie) {
+    //   display = (
+    //     <MovieDetails
+    //     key={this.state.singleMovie.id}
+    //     id={this.state.singleMovie.id}
+    //     title={this.state.singleMovie.title}
+    //     poster={this.state.singleMovie.poster_path}
+    //     backdrop={this.state.singleMovie.backdrop_path}
+    //     rating={this.state.singleMovie.average_rating}
+    //     release={this.state.singleMovie.release_date}
+    //     clearMovieDetails={this.clearMovieDetails}
+    //     overview={this.state.singleMovie.overview}
+    //     releaseDate={this.state.singleMovie.release_date}
+    //     runTime={this.state.singleMovie.runtime}
+    //     genres={this.state.singleMovie.genres}
+    //     />
+    //     )
+    //   } else { 
+    //     display = (<Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails} />)
+    //   }
     return (
       <main className='App'>
-        <Navigation />
-        {/* <h1>Rotten Tomatillos</h1> */}
-        {display}
+        <nav>
+          <Navigation />
+        </nav>
+        <Route exact path="/" render={() => <Movies movies={this.state.movies} displayMovieDetails={this.displayMovieDetails}/>} />
+        <Route
+          exact path="/:movieId"
+          render={() => <MovieDetails details={this.state.singleMovie} />}
+        />
       </main>
     )
   }
