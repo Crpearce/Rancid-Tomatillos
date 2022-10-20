@@ -1,21 +1,17 @@
 import React from 'react'
 import './MovieDetails.css'
 
-const MovieDetails = ({id, title, poster, backdrop, rating, release, overview, releaseDate, runTime, genres, clearMovieDetails}) => {
-
-    const releaseYear = releaseDate.split('-')[0]
-    const allGenres = genres.map(genre => ` ${genre} `)
-    
-    // pass in the fetched single video as a prop, find the specific video by the matching ID
+const MovieDetails = ({details}) => {
+        console.log(details.release_date)
+    // const releaseYear = details.releaseDate.split('-')[0]
+    // const allGenres = details.genres.map(genre => ` ${genre} `)
+    // need to try and fix these two variables above, for some reason these are triggering 
+    // an error when the user clicks on a single video. find a way to access the data now
+    // that we are passing in that details object
     return (
-        <div className='movie-details'>
-            <h2 className='movie-details-title'>{title}</h2>
-            <img className='single-poster-img' src={poster} alt={ `poster from the movie ${title}`}
-            />
-            <p className='movie-overview'>{overview}</p>
-            <p className='extra-movie-details'>{releaseYear} | {runTime}mins | {allGenres} </p>
-            <p className='rating'><b>Rating:</b> {rating.toFixed(0)} out of 10</p>
-            <button className="clear-movie-details" onClick={clearMovieDetails}>HOME</button>
+        <div className='movie-details' key={details.id}>
+            <h2 className='movie-details-title'>{details.title}</h2>
+            <img src={details.poster_path} alt={details.title} />
         </div>
     )
 }
