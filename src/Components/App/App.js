@@ -25,11 +25,14 @@ class App extends Component {
           return response.json()
         }
       })
-      .then(data => this.setState({ movies: data.movies }))
+      .then(data => { 
+        console.log(data)
+        this.setState({ movies: data.movies })})
       .catch(error => this.setState({error: 'Error loading page, please try again!'}))
   }
 
   displayMovieDetails = (id) => {
+    this.setState({singleMovie: {}})
     const currentMovie = this.state.movies.find(movie => movie.id === id)
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${currentMovie.id}`)
     .then(response => response.json())
