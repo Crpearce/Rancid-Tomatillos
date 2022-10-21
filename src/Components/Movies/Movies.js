@@ -2,7 +2,7 @@ import React from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import "./Movies.css";
 
-const Movies = ({ movies, displayMovieDetails }) => {
+const Movies = ({ movies}) => {
   const movieCards = movies.map((movie) => {
     return (
       <MovieCard
@@ -13,8 +13,6 @@ const Movies = ({ movies, displayMovieDetails }) => {
         averageRating={movie.average_rating}
         releaseDate={movie.release_date}
         key={movie.id}
-        onClick = {() => displayMovieDetails(movie.id)}
-        // pass in function to render movie video on click(use movie id to find)
       />
     );
   });

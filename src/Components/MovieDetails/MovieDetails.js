@@ -1,30 +1,41 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import './MovieDetails.css'
 
-const MovieDetails = ({details}) => {
-        console.log(details.genres)
-    // const rating = details.average_rating.toFixed(0)
-    // need to try and fix these two variables above, for some reason these are triggering 
-    // an error when the user clicks on a single video. find a way to access the data now
-    // that we are passing in that details object
-    if (!details.genres) {
-        return <h3>'Loading'</h3> 
-    } else {
+class MovieDetails extends Component {
+    constructor() {
+        super()
+        this.state = {
+            singleMovie: {}
+        }
+    }
+    displayMovieDetails = (id) => {
+        fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+        .then(response => response.json())
+        .then(data => this.setState({ singleMovie: data.movie }))
+      }
 
-    return (
-        <div className='movie-details' key={details.id}>
-            <h2 className='movie-details-title'>{details.title}</h2>
-            <img className='movie-details-image' src={details.poster_path} alt={details.title} />
-            <p className='movie-overview'>{details.overview}</p>
-            <p className='rating'>Rating: {details.average_rating.toFixed(0)} / 10</p>
-            <p className='release-date'>{details.release_date.split('-')[0]}</p>
-            <p className='movie-genres'>{details.genres.map(genre => ` ${genre} `)}</p>
-        </div>
-    )
-}
-}
+      componentDidMount() {
+        const id = this.props.id
+        this.displayMovieDetails(id)
+      }
 
-export default MovieDetails
+    render() {
+        return (
+            <div className='movie-details' key={this.state.singleMovie.id}>
+                <h2 className='movie-details-title'>{this.state.singleMovie.title}</h2>
+                <img className='movie-details-image' src={this.state.singleMovie.poster_path} alt={this.state.singleMovie.title} />
+                <p className='movie-overview'>{this.state.singleMovie.overview}</p>
+                <p className='rating'><b>Rating:</b>  {parseInt(this.state.singleMovie.average_rating)} / 10</p>
+                <p className='release-date'><b>Release date:</b> {this.state.singleMovie.release_date}</p>
+                <Link to='/'>
+                    <button className="home-button">Home</button>
+                </Link>
+            </div>
+            )
+        }
+    }
 
 
-// can do fetch here!
+
+export default MovieDetails;

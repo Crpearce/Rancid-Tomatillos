@@ -62,6 +62,27 @@
     font-size: 35px;
     margin-bottom: 2%;
   }
+  .home-button {
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid #FFFFFF;
+    margin:00.3em 0.3em 0;
+    margin-bottom: 1%;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color: #0F7173;
+    text-align:center;
+    transition: all 0.2s;
+  }
+  
+  .home-button:hover{
+    color:#000000;
+    background-color:#FFFFFF;
+  }
+  
 
   /* .movie-details-image {
     
