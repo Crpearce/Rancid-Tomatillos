@@ -37,9 +37,9 @@ describe('App', () => {
     cy.get('Nav').contains('Tomatillos')
   })
   it('should display all movie details', () => {
-    cy.get('.movie-details-title').contains("Money Plane")
+    cy.get('.movie-details').get('.movie-overview').contains('A professional')
     // cy.get('.movie-overview').should('be.visible')
-    // cy.get('.movie-overview').contains("This is a sample test")
+    // cy.get('.movie-details').contains("A professional")
   })
 
   it.skip('should have a home button to return to the main view of all movies', () => {
