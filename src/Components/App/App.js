@@ -32,12 +32,13 @@ class App extends Component {
   }
 
   displayMovieDetails = (id) => {
-    this.setState({singleMovie: {}})
     const currentMovie = this.state.movies.find(movie => movie.id === id)
+    this.setState({singleMovie: currentMovie})
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${currentMovie.id}`)
     .then(response => response.json())
     .then(data => this.setState({ singleMovie: data.movie }))
   }
+
 
   clearMovieDetails = () => {
     this.setState({ singleMovie: null})
