@@ -1,53 +1,44 @@
-.movie-details {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    margin-top: 15%;
-  }
+.movie-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 80%;
+  margin-top: 10%;
+}
 
-  .movie-details-title {
-    font-family: 'Roboto Condensed', sans-serif;
-    color: white;
-    font-size: 50px;
-    margin-top: 2%;
-    margin-bottom: 2%;
+.movie-details-title {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: white;
+  font-size: 50px;
+  margin-top: 2%;
+  margin-bottom: 1%;
   }
 
   .movie-details-image {
-    height: 70%;
-    width: 70%;
-  }
-
-  .single-poster-img {
-        /* display: block; */
-        /* max-width:230px;
-        max-height:95px; */
-    width: 50%;
-    height: auto;
+    height: 50%;
+    width: auto;
     margin-bottom: 2%;
-  }
-
-  .clear-movie-details {
-    margin-top: 3%;
-    margin-bottom: 2%;
-    height: 80%;
-    width: 10%;
-  }
-
-  .rating {
-    font-family: 'Roboto Condensed', sans-serif;
-    color: white;
-    font-size: 25px;
+    border-color: rgba(13,101,107, .8);
+    border-width: 8px;
+    border-style: solid;
   }
 
   .movie-overview {
     font-family: 'Roboto Condensed', sans-serif;
     color: white;
     font-size: 25px;
-    margin-bottom: 3%;
+    font-weight: 300;
+    margin-bottom: 2%;
     width: 60%;
   }
+
+  /* .single-poster-img {
+    width: 35%;
+    height: auto;
+    margin-bottom: 2%;
+  } */
 
   .movie-genres {
     font-family: 'Roboto Condensed', sans-serif;
@@ -55,19 +46,27 @@
     font-size: 35px;
     margin-bottom: 2%;
   }
-
+  
   .release-date {
     font-family: 'Roboto Condensed', sans-serif;
     color: white;
     font-size: 35px;
     margin-bottom: 2%;
   }
+
+  .rating {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: white;
+    font-size: 25px;
+    margin-bottom: 2%;
+  }
+  
   .home-button {
     display: inline-block;
     padding: 0.35em 1.2em;
     border: 0.1em solid #FFFFFF;
     margin:00.3em 0.3em 0;
-    margin-bottom: 1%;
+    margin-bottom: 10%;
     border-radius:0.12em;
     box-sizing: border-box;
     text-decoration:none;
@@ -83,8 +82,17 @@
     background-color:#FFFFFF;
   }
   
-
-  /* .movie-details-image {
-    
-  } */
-
+  .movie-trailers-container {
+    /* display: flex; */
+    /* justify-content: center; */
+    align-items: center;
+  }
+  .clear-movie-details {
+    margin-top: 3%;
+    margin-bottom: 2%;
+    height: 80%;
+    width: 10%;
+  }
+  
+  
+  

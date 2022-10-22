@@ -90,22 +90,17 @@ class MovieDetails extends Component {
       );
     } else {
       return (
-        <div className="movie-details" key={this.state.singleMovie.id}>
-          <h2 className="movie-details-title">
-            {this.state.singleMovie.title}
-          </h2>
-          <img
-            className="movie-details-image"
-            src={this.state.singleMovie.poster_path}
-            alt={this.state.singleMovie.title}
-          />
-          <p className="movie-overview">{this.state.singleMovie.overview}</p>
-          <p className="rating"><b>Rating:</b> {parseInt(this.state.singleMovie.average_rating)} / 10 </p>
-          <p className="release-date"><b>Release date:</b> {this.state.singleMovie.release_date}</p>
+        <div className="movie-details-container" key={this.state.singleMovie.id}>
+          <h2 className="movie-details-title">{this.state.singleMovie.title}</h2>
+          <img className="movie-details-image" src={this.state.singleMovie.poster_path} alt={this.state.singleMovie.title}/>
+            <p className="movie-overview">{this.state.singleMovie.overview}</p>
+            {/* <p className="rating"><b>{parseInt(this.state.singleMovie.average_rating)} / 10</b> </p> */}
+            <p className="release-date"><b>{this.state.singleMovie.release_date} | {this.state.singleMovie.genres}</b></p>
+            {/* <p className="movie-genres"><b></b></p> */}
           <Link to="/">
             <button className="home-button">Home</button>
           </Link>
-          <section className="movie-trailers">
+          <section className="movie-trailers-container">
             <Swiper
               modules={[Pagination, Navigation, Mousewheel, Keyboard]}
               slidesPerView={1}
