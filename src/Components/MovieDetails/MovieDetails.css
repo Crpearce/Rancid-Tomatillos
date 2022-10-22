@@ -3,50 +3,61 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  width: 100%;
-  height: 80%;
   margin-top: 10%;
 }
+.movie-card-container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  margin-top: 2%;
+}
 
-.movie-details-title {
+.image {
+  height: auto;
+  width: 70%;
+  border-color: rgba(13,101,107, .8);
+  border-width: 8px;
+  border-style: solid;
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
+  justify-content: space-between;
+}
+
+.title {
   font-family: 'Roboto Condensed', sans-serif;
   color: white;
-  font-size: 50px;
-  margin-top: 2%;
+  font-size: 4vw;
   margin-bottom: 1%;
-  }
+}
 
-  .movie-details-image {
-    height: 50%;
-    width: auto;
-    margin-bottom: 2%;
-    border-color: rgba(13,101,107, .8);
-    border-width: 8px;
-    border-style: solid;
-  }
+.overview {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: white;
+  font-size: 25px;
+  font-weight: 300;
+  width: 60%;
+  margin-bottom: 2%;
+}
 
-  .movie-overview {
-    font-family: 'Roboto Condensed', sans-serif;
-    color: white;
-    font-size: 25px;
-    font-weight: 300;
-    margin-bottom: 2%;
-    width: 60%;
-  }
-
-  /* .single-poster-img {
-    width: 35%;
-    height: auto;
-    margin-bottom: 2%;
-  } */
-
-  .movie-genres {
+  /* .genres {
     font-family: 'Roboto Condensed', sans-serif;
     color: white;
     font-size: 35px;
     margin-bottom: 2%;
   }
-  
+   */
+  .rating {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: white;
+    font-size: 25px;
+  }
+
   .release-date {
     font-family: 'Roboto Condensed', sans-serif;
     color: white;
@@ -54,13 +65,18 @@
     margin-bottom: 2%;
   }
 
-  .rating {
-    font-family: 'Roboto Condensed', sans-serif;
-    color: white;
-    font-size: 25px;
-    margin-bottom: 2%;
-  }
-  
+  .movie-trailer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 60vw;
+}
+
+iframe {
+  height: 100%;
+}
+
   .home-button {
     display: inline-block;
     padding: 0.35em 1.2em;
@@ -82,17 +98,6 @@
     background-color:#FFFFFF;
   }
   
-  .movie-trailers-container {
-    /* display: flex; */
-    /* justify-content: center; */
-    align-items: center;
-  }
-  .clear-movie-details {
-    margin-top: 3%;
-    margin-bottom: 2%;
-    height: 80%;
-    width: 10%;
-  }
   
   
   
