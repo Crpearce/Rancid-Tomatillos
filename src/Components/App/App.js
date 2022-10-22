@@ -37,7 +37,7 @@ class App extends Component {
         <Route exact path="/" render={() => <Movies movies={this.state.movies} />} />
         <Route
           exact path="/:movieId"
-          render={({ match }) => <MovieDetails id={match.params.movieId}/>}
+          render={({ match }) => <MovieDetails singleMovieID={match.params.movieId}/>}
         />
       </main>
     )
