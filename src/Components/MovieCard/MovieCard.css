@@ -4,7 +4,7 @@
     padding: 10px;
   }  */
 
-  img {
+  .card-image {
     height: 80%;
     width: 80%;
     cursor: pointer; 

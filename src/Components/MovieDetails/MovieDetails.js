@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import ReactPlayer from "react-player";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, Mousewheel, Keyboard } from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+// import ReactPlayer from "react-player";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import { Pagination, Navigation, Mousewheel, Keyboard } from "swiper";
+import dayjs from 'dayjs';
+// import "swiper/css";
+// import "swiper/css/navigation";
+// import "swiper/css/pagination";
+// import "swiper/css/scrollbar";
 import "./MovieDetails.css";
 
 class MovieDetails extends Component {
@@ -14,7 +15,7 @@ class MovieDetails extends Component {
     super();
     this.state = {
       singleMovie: {},
-      trailers: [],
+      trailer: '',
       error: "",
     };
   }
@@ -31,7 +32,8 @@ class MovieDetails extends Component {
         }
       })
       .then((data) => {
-        this.setState({ trailers: data.videos });
+        this.setState({ trailer: data.videos[0] })
+        console.log(this.state.trailer)
       })
       .catch((error) => this.setState({ error: error.message }));
 
@@ -49,74 +51,36 @@ class MovieDetails extends Component {
       .catch((error) => this.setState({ error: error.message }));
   }
 
-  displayMovieTrailers = () => {
-    let trailerVideos;
-    this.state.trailers.forEach((trailer) => {
-      if (trailer.site === "YouTube") {
-        trailerVideos = this.state.trailers.map((video) => {
-          return (
-            <SwiperSlide className="swiper-slide" key={video.id}>
-              <ReactPlayer
-                className="video"
-                controls={true}
-                url={`https://www.youtube.com/watch?v=${video.key}`}
-              />
-            </SwiperSlide>
-          );
-        });
-      } else if (trailer.site === "Vimeo") {
-        trailerVideos = this.state.trailers.map((video) => {
-          return (
-            <SwiperSlide className="swiper-slide" key={video.id}>
-              <ReactPlayer
-                className="video"
-                controls={true}
-                url={`https://www.vimeo.com/${video.key}`}
-              />
-            </SwiperSlide>
-          );
-        });
-      }
-    });
-    return trailerVideos;
-  };
 
   render() {
-    if (this.state.trailers.length < 1) {
-      return (
-        <div>
-          <h3 className="movie-details">Loading....</h3>
-        </div>
-      );
-    } else {
       return (
         <div className="movie-details-container" key={this.state.singleMovie.id}>
-          <h2 className="movie-details-title">{this.state.singleMovie.title}</h2>
-          <img className="movie-details-image" src={this.state.singleMovie.poster_path} alt={this.state.singleMovie.title}/>
-            <p className="movie-overview">{this.state.singleMovie.overview}</p>
-            {/* <p className="rating"><b>{parseInt(this.state.singleMovie.average_rating)} / 10</b> </p> */}
-            <p className="release-date"><b>{this.state.singleMovie.release_date} | {this.state.singleMovie.genres}</b></p>
-            {/* <p className="movie-genres"><b></b></p> */}
+          <div className="movie-card-container">
+            <section className='movie-details'>
+              <img className="image" src={this.state.singleMovie.backdrop_path} alt={this.state.singleMovie.title}/>
+              <h2 className="title">{this.state.singleMovie.title}</h2>
+              <p className="overview">{this.state.singleMovie.overview}</p>
+              <p className="release-date"><b>{dayjs(this.state.singleMovie.release_date).format("MM/DD/YYYY")} | {this.state.singleMovie.genres}</b></p>
+              <p className="rating"><b>{parseInt(this.state.singleMovie.average_rating)} / 10</b> </p>
+            </section>
+          </div>
+          <section className="movie-trailer-container">
+            {/* <div className='movie-trailer'> */}
+              <iframe
+              src={`https://www.youtube.com/embed/${this.state.trailer.key}`}
+              frameBorder='0'
+              title="Embedded youtube"
+              width='80%'
+              ></iframe>
+            {/* </div> */}
+          </section>
           <Link to="/">
             <button className="home-button">Home</button>
           </Link>
-          <section className="movie-trailers-container">
-            <Swiper
-              modules={[Pagination, Navigation, Mousewheel, Keyboard]}
-              slidesPerView={1}
-              pagination={{ clickable: true }}
-              navigation={true}
-              keyboard={true}
-              mousewheel={true}
-              className="all-swiper-movies"
-            >
-              {this.displayMovieTrailers()}
-            </Swiper>
-          </section>
         </div>
       );
     }
   }
-}
+// }
 
 export default MovieDetails;
