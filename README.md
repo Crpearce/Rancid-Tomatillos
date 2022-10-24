@@ -1,4 +1,5 @@
 # Rancid Tomatillos
+<img width="1634" alt="Screen Shot 2022-10-24 at 9 49 55 AM" src="https://user-images.githubusercontent.com/83977544/197569789-e46617a6-b8e1-4906-a18f-2eb4cc3ec233.png">
 
 A movie database application where users can browse various movies and view details and other information about the movie.  Additionally, users can view a trailer or clip of the movie of their choosing.
 
