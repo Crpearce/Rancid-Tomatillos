@@ -34,6 +34,7 @@ class App extends Component {
         <nav>
           <Navigation />
         </nav>
+        {(this.state.error && <h3 className="error-message">{this.state.error}</h3>)}
         <Route exact path="/" render={() => <Movies movies={this.state.movies} />} />
         <Route
           exact path="/:movieId"

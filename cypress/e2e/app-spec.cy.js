@@ -1,50 +1,40 @@
-describe('App', () => {
-  beforeEach(() => {
-    cy.visit('http://localhost:3000')
+describe('RANCID', () => {
+  beforeEach( () => {
+    cy.visit('http://localhost:3000/')
   })
 
   it('should load main page title', () => {
-    cy.get('Nav').contains('Rancid')
-    cy.get('Nav').contains('Tomatillos')
+    cy.get('Nav').get('h1').contains('Rancid')
+    cy.get('Nav').get('h2').contains('Tomatillos')
   })
 
   it('should display all movies when page loads by fetching all movies', () => {
-    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', { fixture: 'movies'})
-    cy.get('main').children('div').contains('Mulan')
-    cy.get('main').children('div').contains('Mars Attacks').should('not.exist')
-  })
-  // it.skip('should display error message if api fails', () => {
-  //   cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', 'local')
-  // })
-
-  it('should click a movie poster and see additional movie details', () => {
-    cy.get('.movie-card').first().click()
-    cy.url().should('include', '/694919')
-    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', { fixture: 'movie'})
-  })
-})
-
-  describe('Movie Details', () => {
-    beforeEach(() => {
-      // cy.visit('http://localhost:3000')
-      // cy.get('.movie-card').first().click()
-      // cy.url().should('include', '/694919')
-      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', { fixture: 'movie'})
+    cy.contains('Rancid Tomatillos')
+      .url().should('include', '/')
+      .intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+        statusCode: 201
+      })
+      .get('main').children('div').contains('Money Plane')
+      .get('main').children('div').contains('Mulan')
+      .get('main').children('div').contains('Mars Attacks').should('not.exist')
     })
 
-  it('should display movie details and no other movies will be displayed', () => {
-    cy.get('Nav').contains('Rancid')
-    cy.get('Nav').contains('Tomatillos')
-  })
-  it('should display all movie details', () => {
-    cy.get('.movie-details').get('.movie-overview').contains('A professional')
-    // cy.get('.movie-overview').should('be.visible')
-    // cy.get('.movie-details').contains("A professional")
+    it('Should show an error message if the response is not ok', () => {
+      cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+          statusCode: 401
+        })
+        .get('h3').contains('Error loading page, please try again!')
+    })
+
+    it('should load all the movie cards that it gets data for (in this case, 40)', () => {
+      cy.visit("localhost:3000/").get('a.movie-card').should('have.length', 40)
+    })
+
+    it('Should be able to click on a movie card and display that movie\'s details', () => {
+      cy.get('.movie-card').first().click()
+        .url().should('include', '/694919')
+        .get('.movie-details').should('contain','Money Plane')
+    })
   })
 
-  it.skip('should have a home button to return to the main view of all movies', () => {
 
-  })
-
-})
-  
