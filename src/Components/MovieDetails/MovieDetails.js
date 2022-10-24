@@ -45,25 +45,39 @@ class MovieDetails extends Component {
     }
 
   render() {
-    console.log(this.state.singleMovie)
+    const getBackdropPoster = (singleMovie) => {
+      if(!singleMovie.backdrop_path) {
+        return 'No image available'
+      } else {
+        return singleMovie.backdrop_path
+      }
+    }
+
+    const getRuntime = (singleMovie) => {
+      if(!singleMovie.runtime) {
+        return 'No Runtime provided'
+      } else {
+        return `${singleMovie.runtime} minutes`
+      }
+    }
       return (
         <div className="movie-details-container" key={this.state.singleMovie.id}>
-              <img className="image" src={this.state.singleMovie.backdrop_path} alt={this.state.singleMovie.title}/>
+              <img className="image" src={getBackdropPoster(this.state.singleMovie)} alt={this.state.singleMovie.title}/>
           <div className="movie-card-container">
             <section className='movie-details'>
-              <p className="other-details"> <b>{dayjs(this.state.singleMovie.release_date).format("MM/DD/YYYY")}</b> | <b>{this.state.singleMovie.runtime} Minutes</b> | <b>Rating: {parseInt(this.state.singleMovie.average_rating)}</b></p>
+              <p className="other-details"> <b>{dayjs(this.state.singleMovie.release_date).format("MM/DD/YYYY")}</b> | <b>{getRuntime(this.state.singleMovie)}</b> | <b>Rating: {parseInt(this.state.singleMovie.average_rating)}</b></p>
               <h2 className="title">{this.state.singleMovie.title}</h2>
               <p className="overview">{this.state.singleMovie.overview}</p>
             </section>
           </div>
-          <section className="movie-trailer-container">
+          {this.state.trailer && <section className="movie-trailer-container">
               <iframe
               src={`https://www.youtube.com/embed/${this.state.trailer.key}`}
               frameBorder='0'
               title="Embedded youtube"
               width='80%'
               ></iframe>
-          </section>
+          </section>}
           <Link to="/">
             <button className="home-button">Rancid Tomatillos</button>
           </Link>
