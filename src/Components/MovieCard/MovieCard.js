@@ -8,8 +8,8 @@ const MovieCard = ({ id, title, posterPath }) => {
         <img src={posterPath} alt={title} className='card-image'/>
         <h3 className="movie-title"><b>{title}</b></h3>
     </Link>
-  );
-};
+  )
+}
 
 export default MovieCard;
 

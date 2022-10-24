@@ -1,9 +1,12 @@
 .movie-details-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: normal; 
   margin-top: 15%;
+}
+
+.details-video-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  width: 100vw;
 }
 
 .image {
@@ -17,10 +20,8 @@
 
 .movie-card-container {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  width: 100vh;
-  height: 35vh;
+  width: 45%;
 }
 
 .movie-details {
@@ -29,8 +30,6 @@
   align-items: center;
   text-align: justify;
   justify-content: space-between;
-  margin-top: 2%;
-  width: 100vh;
 }
 
 .title {
@@ -46,6 +45,7 @@
   font-size: 25px;
   font-weight: 300;
   margin-bottom: 2%;
+  width: 85%;
 }
 
 .other-details {
@@ -57,22 +57,20 @@
 
 .movie-trailer-container {
   display: flex;
+  align-content: center;
   justify-content: center;
-  align-items: center;
-  height: 40vh;
-  width: 60vw;
-  margin-bottom: 3%;
+  width: 45%;
 }
 
 iframe {
-  height: 100%;
+  width: 90%;
+  margin-bottom: 10%;
 }
 
 .home-button {
   background-color: transparent;
   border: 4px solid rgba(13,101,107, .8);
   border-radius: 30px;
-
   -webkit-transition: all .15s ease-in-out;
   display: inline-block;
   align-content: center;
@@ -83,7 +81,8 @@ iframe {
   cursor: pointer;
   font-family: Caveat;
   margin-bottom: 15%;
-  width: 120%;
+  margin-top: 5%;
+  width: 20%;
 }
   
 .home-button:hover{
