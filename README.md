@@ -44,7 +44,7 @@ Start the server:<br>
 `npm start`
 
 ## Deployment
-- https://salty-river-63684.herokuapp.com/
+- https://rancid-tomatillos-2207.herokuapp.com/
 
 ## Additional Resources
 - Additional Resources
