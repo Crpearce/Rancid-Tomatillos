@@ -10,7 +10,7 @@ A movie database application where users can browse various movies and view deta
 ## Tech
 - **Client:** React, JavaScript, HTML, CSS, NPM
 - **Testing:** Cypress
-- **Server:**
+- **Server:** Heroku API
 - **Accessibility:** Lighthouse
 
 ## API
@@ -46,8 +46,7 @@ Start the server:<br>
 ## Deployment
 - https://rancid-tomatillos-2207.herokuapp.com/
 
-## Additional Resources
-- Additional Resources
+
 
 
 
