@@ -24,7 +24,7 @@ A movie database application where users can browse various movies and view deta
 `GET https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`
 
 ## Application GIF
-- ![Oct-24-2022 13-11-51](https://user-images.githubusercontent.com/101376200/197606775-71cfe7e5-782c-40e5-aa46-a1a80fcebb38.gif)
+![Oct-24-2022 13-11-51](https://user-images.githubusercontent.com/101376200/197606775-71cfe7e5-782c-40e5-aa46-a1a80fcebb38.gif)
 
 ## Running Tests
 To run end-to-end tests, run the following command:<br>
