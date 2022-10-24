@@ -31,14 +31,10 @@ class App extends Component {
   render() {
     return (
       <main className='App'>
-        <nav>
-          <Navigation />
-        </nav>
+        <Route path='/' render={() => <Navigation />}/>
         {(this.state.error && <h3 className="error-message">{this.state.error}</h3>)}
         <Route exact path="/" render={() => <Movies movies={this.state.movies} />} />
-        <Route
-          exact path="/:movieId"
-          render={({ match }) => <MovieDetails singleMovieID={match.params.movieId}/>}
+        <Route exact path="/:movieId" render={({ match }) => <MovieDetails singleMovieID={match.params.movieId}/>}
         />
       </main>
     )
