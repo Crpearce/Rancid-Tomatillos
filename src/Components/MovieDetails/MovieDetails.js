@@ -14,9 +14,7 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    fetch(
-      `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.singleMovieID}`
-      )
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.singleMovieID}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Error receiving Data");
@@ -26,9 +24,8 @@ class MovieDetails extends Component {
       })
       .then((response) => this.setState({ singleMovie: response.movie }))
       .catch((error) => this.setState({ error: error.message }));
-    fetch(
-      `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.singleMovieID}/videos`
-      )
+
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.singleMovieID}/videos`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Error receiving Data");
@@ -57,7 +54,7 @@ class MovieDetails extends Component {
         return `${singleMovie.runtime} minutes`
       }
     }
-    
+
       return (
         <div className="movie-details-container" key={this.state.singleMovie.id}>
               <img className="image" src={getBackdropPoster(this.state.singleMovie)} alt={this.state.singleMovie.title}/>

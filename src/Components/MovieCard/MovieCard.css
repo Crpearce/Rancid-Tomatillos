@@ -4,14 +4,13 @@
   -webkit-filter: brightness(0.8);
 }
 
-  .card-image {
+.card-image {
     width: 18vw;
     height: 48vh;
     margin: 2vh 1.5vw;
     cursor: pointer; 
     border-radius: 10%;
 }
-
 
 .movie-title {
   font-family: 'Roboto Condensed', sans-serif;
