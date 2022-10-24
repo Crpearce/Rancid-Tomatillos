@@ -3,8 +3,8 @@
 A movie database application where users can browse various movies and view details and other information about the movie.  Additionally, users can view a trailer or clip of the movie of their choosing.
 
 ## Authors
-- Carissa Gross
-- Colby Pearce
+- [Carissa Gross](https://github.com/carissagross)
+- [Colby Pearce](https://github.com/Crpearce)
 
 ## Tech
 - **Client:** React, JavaScript, HTML, CSS, NPM
