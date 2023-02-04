@@ -44,7 +44,7 @@ Start the server:<br>
 `npm start`
 
 ## Deployment
-- https://rancid-tomatillos-2207.herokuapp.com/
+- https://rancid-tomatillos-ffsors7w3-crpearce.vercel.app/
 
 
 
